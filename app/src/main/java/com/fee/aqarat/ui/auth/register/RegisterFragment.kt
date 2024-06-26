@@ -1,4 +1,4 @@
-package com.fee.aqarat.ui.register
+package com.fee.aqarat.ui.auth.register
 
 import android.os.Bundle
 import android.view.LayoutInflater

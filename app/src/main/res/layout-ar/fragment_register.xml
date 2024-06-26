@@ -20,11 +20,11 @@
             android:clipToPadding="false"
             android:fillViewport="true"
             android:paddingTop="23dp"
-            android:paddingBottom="@dimen/_100sdp">
+            android:paddingBottom="@dimen/_64sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:orientation="vertical">
@@ -43,13 +43,13 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/back_arrow" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:layout_height="74dp"
                         android:layout_gravity="center"
                         android:background="@drawable/logo"
-                        android:gravity="center" />
-
+                        android:gravity="center"
+                        android:orientation="vertical" />
                 </LinearLayout>
 
                 <TextView
@@ -82,7 +82,7 @@
                     android:layout_marginBottom="20dp"
                     android:autofillHints="name"
                     android:background="@drawable/edittext_background"
-                    android:drawableEnd="@drawable/name_icon"
+                    android:drawableStart="@drawable/name_icon"
                     android:drawablePadding="@dimen/_8sdp"
                     android:hint="@string/name"
                     android:inputType="textPersonName"
@@ -97,7 +97,7 @@
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/edittext_background"
-                    android:drawableEnd="@drawable/email_icon"
+                    android:drawableStart="@drawable/email_icon"
                     android:drawablePadding="@dimen/_8sdp"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
@@ -112,7 +112,7 @@
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/edittext_background"
-                    android:drawableEnd="@drawable/phone_icon"
+                    android:drawableStart="@drawable/phone_icon"
                     android:drawablePadding="@dimen/_8sdp"
                     android:hint="@string/phone"
                     android:inputType="phone"
@@ -127,8 +127,9 @@
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/edittext_background"
-                    android:drawableEnd="@drawable/password_icon"
+                    android:drawableStart="@drawable/password_icon"
                     android:drawablePadding="@dimen/_8sdp"
+                    android:gravity="end"
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:padding="@dimen/_8sdp"
@@ -142,8 +143,9 @@
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/edittext_background"
-                    android:drawableEnd="@drawable/password_icon"
+                    android:drawableStart="@drawable/password_icon"
                     android:drawablePadding="@dimen/_8sdp"
+                    android:gravity="end"
                     android:hint="@string/confirm_password"
                     android:inputType="textPassword"
                     android:padding="@dimen/_8sdp"
@@ -159,7 +161,6 @@
                     android:layout_marginBottom="21dp"
                     android:clipChildren="false"
                     android:clipToPadding="false"
-                    android:gravity="end"
                     android:orientation="horizontal">
 
 
