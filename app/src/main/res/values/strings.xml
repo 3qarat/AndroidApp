@@ -16,4 +16,15 @@
     <string name="forget_password">نسيت كلمة السر؟</string>
     <string name="login">تسجيل الدخول</string>
     <string name="not_have_account">ليس لديك حساب حتي الان ؟</string>
+
+    <string name="create_new_password">إنشاء كلمة مرور جديدة</string>
+    <string name="type_new_password">اكتب كلمة المرور الجديدة القوية الخاصة بك</string>
+    <string name="confirm">تأكيد</string>
+    <string name="new_password">إعادة تعيين كلمة السر</string>
+    <string name="type_phone_num_to_new_pass">اكتب رقم الهاتف الذي سجلت به لتستلم رمز\n اعادة تعيين كلمة السر</string>
+    <string name="confirm_phone">تأكيد رقم الهاتف</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="verify_number">التحقق من رقم الهاتف</string>
+    <string name="sent_code_to">تم ارسال رمز إلي</string>
 </resources>

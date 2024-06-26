@@ -21,5 +21,35 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.fee.aqarat.ui.auth.forgetPassword.ForgetPasswordFragment"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password">
+        <action
+            android:id="@+id/action_forgetPasswordFragment_to_verifyPhoneNumberFragment"
+            app:destination="@id/verifyPhoneNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyPhoneNumberFragment"
+        android:name="com.fee.aqarat.ui.auth.verifyPhoneNum.VerifyPhoneNumberFragment"
+        android:label="fragment_vertify_phone_number"
+        tools:layout="@layout/fragment_verify_phone_number">
+        <action
+            android:id="@+id/action_verifyPhoneNumberFragment_to_newPasswordFragment"
+            app:destination="@id/newPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="com.fee.aqarat.ui.auth.newPassword.NewPasswordFragment"
+        android:label="fragment_new_password"
+        tools:layout="@layout/fragment_new_password">
+        <action
+            android:id="@+id/action_newPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
