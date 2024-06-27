@@ -1,5 +1,6 @@
 package com.fee.aqarat.di
 
+import com.fee.aqarat.BuildConfig
 import com.fee.aqarat.data.remote.ApiService
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -32,7 +33,7 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("BuildConfig.")
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(
                 GsonConverterFactory.create(

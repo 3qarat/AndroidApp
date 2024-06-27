@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import es.dmoral.toasty.Toasty
 
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
@@ -37,6 +38,22 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    protected fun showSuccessToast(msg: String) {
+        Toasty.success(
+            context!!,
+            msg,
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    protected fun showErrorToast(msg: String) {
+        Toasty.error(
+            context!!,
+            msg,
+            Toast.LENGTH_LONG
+        ).show()
     }
 
 
