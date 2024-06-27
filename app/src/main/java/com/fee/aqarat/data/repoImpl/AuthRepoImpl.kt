@@ -1,6 +1,8 @@
 package com.fee.aqarat.data.repoImpl
 
 import com.fee.aqarat.data.remote.ApiService
+import com.fee.aqarat.domain.models.auth.LoginBody
+import com.fee.aqarat.domain.models.auth.LoginResponse
 import com.fee.aqarat.domain.models.auth.SignUpBody
 import com.fee.aqarat.domain.models.auth.SignUpResponse
 import com.fee.aqarat.domain.repo.AuthRepo
@@ -14,5 +16,8 @@ class AuthRepoImpl @Inject constructor(
         return apiService.signUp(signUpBody)
     }
 
+    override suspend fun login(loginBody: LoginBody): LoginResponse {
+        return apiService.login(loginBody)
+    }
 
 }

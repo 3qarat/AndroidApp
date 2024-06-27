@@ -107,10 +107,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
 
         when (resource) {
 
-            is Resource.idle -> {}
-
-            is Resource.Loading -> {}
-
             is Resource.Success -> {
                 binding.loadingProgressBar.loadingProgressBar.isVisible = false
                 showSuccessToast(getString(R.string.signUp_successfully))
@@ -125,8 +121,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                     "handleSignUpResponse: ${resource.exception.message}"
                 )
             }
-        }
 
+            else -> {}
+        }
 
     }
 
@@ -134,6 +131,5 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
         val action = RegisterFragmentDirections.actionRegisterFragmentToHomeFragment()
         findNavController().navigate(action)
     }
-
 
 }
