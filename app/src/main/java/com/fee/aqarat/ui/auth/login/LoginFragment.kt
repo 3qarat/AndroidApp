@@ -17,6 +17,9 @@ import com.fee.aqarat.domain.models.auth.LoginBody
 import com.fee.aqarat.domain.models.auth.LoginResponse
 import com.fee.aqarat.ui.auth.AuthViewModel
 import com.fee.aqarat.utils.Resource
+import com.fee.aqarat.utils.SharedPrefUtils.getEmail
+import com.fee.aqarat.utils.SharedPrefUtils.getPassword
+import com.fee.aqarat.utils.SharedPrefUtils.rememberMe
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -36,6 +39,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     }
 
     private fun initUi() {
+
+        binding.emailEditText.setText(getEmail(context!!))
+        binding.passwordEditText.setText(getPassword(context!!))
 
         binding.loginLayout.setOnClickListener {
             if (isValidated()) {
@@ -99,6 +105,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         when (resource) {
 
             is Resource.Success -> {
+                rememberMeFunctionality()
                 binding.loadingProgressBar.loadingProgressBar.isVisible = false
 
                 showSuccessToast(getString(R.string.signUp_successfully))
@@ -120,8 +127,19 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     }
 
     private fun navigateToHome() {
-        val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+        val action = LoginFragmentDirections.actionLoginFragmentToMainGraph()
         findNavController().navigate(action)
+    }
+
+    private fun rememberMeFunctionality() {
+        if (binding.rememberMeCheckBox.isChecked)
+            rememberMe(
+                context!!,
+                binding.emailEditText.text.toString(),
+                binding.passwordEditText.text.toString()
+            )
+        else
+            rememberMe(context!!, "", "")
     }
 
 
