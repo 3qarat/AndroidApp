@@ -1,5 +1,8 @@
 package com.fee.aqarat.di
 
+import android.content.Context
+import android.content.SharedPreferences
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.fee.aqarat.BuildConfig
 import com.fee.aqarat.data.remote.ApiService
 import com.google.gson.GsonBuilder
@@ -8,7 +11,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -18,14 +20,15 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(context: Context, sharedPreferences: SharedPreferences): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(40, TimeUnit.SECONDS)
             .readTimeout(40, TimeUnit.SECONDS)
-            .addInterceptor(HttpLoggingInterceptor())
+            .cookieJar(MyCookieJar(sharedPreferences))
+            .addInterceptor(CookiesInterceptor(sharedPreferences))
+            .addInterceptor(ChuckerInterceptor(context))
             .build()
     }
 
