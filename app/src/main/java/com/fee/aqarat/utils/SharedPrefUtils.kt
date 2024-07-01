@@ -35,5 +35,12 @@ object SharedPrefUtils {
         )
     }
 
+    fun isLogin(context: Context): Boolean {
+        val sharedPreferences = context.getSharedPreferences("AuthSharedPref", Context.MODE_PRIVATE)
+
+        return sharedPreferences.getString("email", "")!!.isNotEmpty()
+                && sharedPreferences.getString("pass", "")!!.isNotEmpty()
+    }
+
 
 }

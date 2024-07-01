@@ -12,7 +12,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="false"
-        android:theme="@style/Theme.Aqarat"
+        android:theme="@style/Theme.App.Starting"
         tools:replace="android:supportsRtl"
         tools:targetApi="31">
 
