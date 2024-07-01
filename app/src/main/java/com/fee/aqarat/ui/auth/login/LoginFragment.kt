@@ -1,5 +1,6 @@
 package com.fee.aqarat.ui.auth.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,10 +16,12 @@ import com.fee.aqarat.base.BaseFragment
 import com.fee.aqarat.databinding.FragmentLoginBinding
 import com.fee.aqarat.domain.models.auth.LoginBody
 import com.fee.aqarat.domain.models.auth.LoginResponse
+import com.fee.aqarat.ui.MainActivity
 import com.fee.aqarat.ui.auth.AuthViewModel
 import com.fee.aqarat.utils.Resource
 import com.fee.aqarat.utils.SharedPrefUtils.getEmail
 import com.fee.aqarat.utils.SharedPrefUtils.getPassword
+import com.fee.aqarat.utils.SharedPrefUtils.isLogin
 import com.fee.aqarat.utils.SharedPrefUtils.rememberMe
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -39,6 +42,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     }
 
     private fun initUi() {
+
+        if (isLogin(context!!)) {
+            navigateToHome()
+        }
 
         binding.emailEditText.setText(getEmail(context!!))
         binding.passwordEditText.setText(getPassword(context!!))
@@ -127,8 +134,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     }
 
     private fun navigateToHome() {
-        val action = LoginFragmentDirections.actionLoginFragmentToMainGraph()
-        findNavController().navigate(action)
+        startActivity(Intent(activity, MainActivity::class.java))
+        activity?.finishAffinity()
+//        val action = LoginFragmentDirections.actionLoginFragmentToMainGraph()
+//        findNavController().navigate(action)
     }
 
     private fun rememberMeFunctionality() {

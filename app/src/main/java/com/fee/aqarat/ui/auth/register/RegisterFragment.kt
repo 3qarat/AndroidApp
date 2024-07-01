@@ -128,7 +128,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
     }
 
     private fun navigateToHome() {
-        val action = RegisterFragmentDirections.actionRegisterFragmentToHomeFragment()
+        val action = RegisterFragmentDirections.actionRegisterFragmentToMainGraph()
         findNavController().navigate(action)
     }
 
